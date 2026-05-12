@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Doc Scaffolder"
+  short_description: "Scaffold agent-ready project docs"
+  default_prompt: "Use $project-doc-scaffolder to add AGENTS.md, contributor docs, design notes, issue templates, and a PR template to this project."
+
+policy:
+  allow_implicit_invocation: true
