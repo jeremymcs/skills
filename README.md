@@ -4,6 +4,12 @@ Reusable agent skills for project setup and development workflows.
 
 ## Available Skills
 
+### create-issue
+
+Creates a single post-mortem issue and pull request from completed session work.
+
+Use it when work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR.
+
 ### project-doc-scaffolder
 
 Scaffolds agent-ready project documentation for a new or existing repository.
@@ -38,6 +44,10 @@ Each skill lives in its own folder and includes a required `SKILL.md`. Supportin
 Current layout:
 
 ```text
+create-issue/
+├── SKILL.md
+└── agents/openai.yaml
+
 project-doc-scaffolder/
 ├── SKILL.md
 ├── agents/openai.yaml

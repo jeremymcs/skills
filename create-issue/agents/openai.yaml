@@ -1,0 +1,7 @@
+interface:
+  display_name: "Create Issue"
+  short_description: "Create issue and PR from completed work"
+  default_prompt: "Use $create-issue to turn the completed session work into one GitHub issue and pull request."
+
+policy:
+  allow_implicit_invocation: true
