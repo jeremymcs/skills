@@ -12,6 +12,7 @@ Reusable agent skills for project setup and development workflows.
 | `$project-doc-scaffolder` | Scaffolds agent-ready project documentation for a new or existing repository. | A project needs `AGENTS.md`, contributor docs, design notes, issue templates, and a PR template. |
 | `$to-adr` | Turns an architecture discussion or design decision into a complete ADR. | A conversation has clarified a decision, rejected option, tradeoff, or architecture direction that future contributors should not re-litigate. |
 | `$verify-project` | Verifies whether a project, repo, or app actually does what it claims. | You need a code-backed completion report with evidence, gaps, and next steps. |
+| `$zero-techdebt` | Reviews code changes for function scope, naming, and file organization fit. | You want to know whether a refactor or code change fits the existing codebase without adding shallow abstractions or confusing structure. |
 
 ## Project Doc Scaffolder
 
@@ -62,6 +63,10 @@ to-adr/
 └── agents/openai.yaml
 
 verify-project/
+├── SKILL.md
+└── agents/openai.yaml
+
+zero-techdebt/
 ├── SKILL.md
 └── agents/openai.yaml
 
