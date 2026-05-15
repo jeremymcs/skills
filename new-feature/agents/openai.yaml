@@ -1,0 +1,7 @@
+interface:
+  display_name: "New Feature"
+  short_description: "Recommend next project features"
+  default_prompt: "Use $new-feature to research this project and recommend the best next features to build."
+
+policy:
+  allow_implicit_invocation: true
