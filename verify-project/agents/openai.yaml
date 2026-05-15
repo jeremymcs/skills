@@ -1,0 +1,7 @@
+interface:
+  display_name: "Verify Project"
+  short_description: "Verify project completion status"
+  default_prompt: "Use $verify-project to inspect this repo or app, verify what actually works, and report completion status with next steps."
+
+policy:
+  allow_implicit_invocation: true
