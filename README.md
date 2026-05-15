@@ -7,6 +7,7 @@ Reusable agent skills for project setup and development workflows.
 | Skill | Purpose | Use when |
 | --- | --- | --- |
 | `$create-issue` | Creates a single post-mortem issue and pull request from completed session work. | Work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR. |
+| `$falsify-project` | Attempts to disprove project claims before validating the repo, app, or site. | You want an adversarial audit that treats docs and claims as false until code/runtime evidence survives contradiction checks. |
 | `$new-feature` | Researches the current project and recommends prioritized new or next features. | You want evidence-backed feature ideas from the current repo, docs, issues, and recent work. |
 | `$project-doc-scaffolder` | Scaffolds agent-ready project documentation for a new or existing repository. | A project needs `AGENTS.md`, contributor docs, design notes, issue templates, and a PR template. |
 | `$to-adr` | Turns an architecture discussion or design decision into a complete ADR. | A conversation has clarified a decision, rejected option, tradeoff, or architecture direction that future contributors should not re-litigate. |
@@ -45,6 +46,10 @@ Current layout:
 
 ```text
 create-issue/
+├── SKILL.md
+└── agents/openai.yaml
+
+falsify-project/
 ├── SKILL.md
 └── agents/openai.yaml
 

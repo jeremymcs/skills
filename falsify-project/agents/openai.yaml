@@ -1,0 +1,7 @@
+interface:
+  display_name: "Falsify Project"
+  short_description: "Disprove project claims before validation"
+  default_prompt: "Use $falsify-project to assume this project is broken, try to disprove its claims, and report what survives validation."
+
+policy:
+  allow_implicit_invocation: true
