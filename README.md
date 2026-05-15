@@ -10,6 +10,12 @@ Creates a single post-mortem issue and pull request from completed session work.
 
 Use it when work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR.
 
+### new-feature
+
+Researches the current project and recommends prioritized new or next features.
+
+Use it when you want evidence-backed feature ideas from the current repo, docs, issues, and recent work.
+
 ### project-doc-scaffolder
 
 Scaffolds agent-ready project documentation for a new or existing repository.
@@ -45,6 +51,10 @@ Current layout:
 
 ```text
 create-issue/
+├── SKILL.md
+└── agents/openai.yaml
+
+new-feature/
 ├── SKILL.md
 └── agents/openai.yaml
 
