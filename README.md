@@ -10,6 +10,12 @@ Creates a single post-mortem issue and pull request from completed session work.
 
 Use it when work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR.
 
+### verify-project
+
+Verifies whether a project, repo, or app actually does what it claims.
+
+Use it when you need a code-backed completion report with evidence, gaps, and next steps.
+
 ### project-doc-scaffolder
 
 Scaffolds agent-ready project documentation for a new or existing repository.
@@ -45,6 +51,10 @@ Current layout:
 
 ```text
 create-issue/
+├── SKILL.md
+└── agents/openai.yaml
+
+verify-project/
 ├── SKILL.md
 └── agents/openai.yaml
 
