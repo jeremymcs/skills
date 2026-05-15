@@ -1,13 +1,13 @@
 ---
-name: code-refactor-review
-description: Review code changes for refactor quality through function scope, naming, and file organization. Use when the user wants to know whether a change fits the existing codebase, introduces shallow abstractions, uses misleading names, or places code in the wrong module or directory.
+name: zero-techdebt
+description: Review code changes for avoidable tech debt through function scope, naming, and file organization. Use when the user wants to know whether a change fits the existing codebase, introduces shallow abstractions, uses misleading names, or places code in the wrong module or directory.
 metadata:
-  short-description: Review refactor fit and organization
+  short-description: Review changes for avoidable tech debt
 ---
 
-# Code Refactor Review
+# Zero Tech Debt
 
-Use this skill to review whether code changes feel native to the codebase.
+Use this skill to review whether code changes fit the codebase without adding avoidable tech debt.
 
 This is a review skill. Lead with concrete findings, not praise or a summary.
 

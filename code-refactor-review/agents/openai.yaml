@@ -1,7 +1,0 @@
-interface:
-  display_name: "Code Refactor Review"
-  short_description: "Review refactor fit and organization"
-  default_prompt: "Use $code-refactor-review to review these changes for function scope, naming, and file organization fit."
-
-policy:
-  allow_implicit_invocation: true

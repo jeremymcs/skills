@@ -1,0 +1,7 @@
+interface:
+  display_name: "Zero Tech Debt"
+  short_description: "Review changes for avoidable tech debt"
+  default_prompt: "Use $zero-techdebt to review these changes for function scope, naming, and file organization fit."
+
+policy:
+  allow_implicit_invocation: true
