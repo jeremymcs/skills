@@ -1,0 +1,7 @@
+interface:
+  display_name: "To ADR"
+  short_description: "Turn architecture discussion into ADR"
+  default_prompt: "Use $to-adr to turn this architecture discussion into a complete Architecture Decision Record."
+
+policy:
+  allow_implicit_invocation: true
