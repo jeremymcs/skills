@@ -4,29 +4,16 @@ Reusable agent skills for project setup and development workflows.
 
 ## Available Skills
 
-### create-issue
+| Skill | Purpose | Use when |
+| --- | --- | --- |
+| `$create-issue` | Creates a single post-mortem issue and pull request from completed session work. | Work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR. |
+| `$new-feature` | Researches the current project and recommends prioritized new or next features. | You want evidence-backed feature ideas from the current repo, docs, issues, and recent work. |
+| `$project-doc-scaffolder` | Scaffolds agent-ready project documentation for a new or existing repository. | A project needs `AGENTS.md`, contributor docs, design notes, issue templates, and a PR template. |
+| `$verify-project` | Verifies whether a project, repo, or app actually does what it claims. | You need a code-backed completion report with evidence, gaps, and next steps. |
 
-Creates a single post-mortem issue and pull request from completed session work.
+## Project Doc Scaffolder
 
-Use it when work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR.
-
-### new-feature
-
-Researches the current project and recommends prioritized new or next features.
-
-Use it when you want evidence-backed feature ideas from the current repo, docs, issues, and recent work.
-
-### verify-project
-
-Verifies whether a project, repo, or app actually does what it claims.
-
-Use it when you need a code-backed completion report with evidence, gaps, and next steps.
-
-### project-doc-scaffolder
-
-Scaffolds agent-ready project documentation for a new or existing repository.
-
-It creates:
+`$project-doc-scaffolder` creates:
 
 - `AGENTS.md`
 - `CONTRIBUTING.md`
