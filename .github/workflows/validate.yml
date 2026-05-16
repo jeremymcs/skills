@@ -1,0 +1,57 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        env:
+          REF_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+          SERVER_URL: ${{ github.server_url }}
+        run: |
+          git init .
+          git remote add origin "$SERVER_URL/$REPOSITORY"
+          git fetch --depth=1 origin "$REF_SHA"
+          git checkout --detach FETCH_HEAD
+
+      - name: Validate skill metadata
+        run: |
+          ruby <<'RUBY'
+          require "yaml"
+
+          skill_files = Dir["*/SKILL.md"].sort
+          raise "no skill files found" if skill_files.empty?
+
+          skill_files.each do |path|
+            text = File.read(path)
+            raise "#{path}: missing YAML frontmatter" unless text.start_with?("---\n")
+
+            frontmatter = text.split("---\n", 3)[1]
+            metadata = YAML.safe_load(frontmatter)
+            raise "#{path}: missing name" unless metadata["name"].is_a?(String) && !metadata["name"].empty?
+            raise "#{path}: missing description" unless metadata["description"].is_a?(String) && !metadata["description"].empty?
+          end
+
+          Dir["*/agents/openai.yaml"].sort.each do |path|
+            metadata = YAML.safe_load(File.read(path))
+            interface = metadata.fetch("interface")
+            %w[display_name short_description default_prompt].each do |key|
+              raise "#{path}: missing interface.#{key}" unless interface[key].is_a?(String) && !interface[key].empty?
+            end
+          end
+          RUBY
+
+      - name: Check scaffold script
+        run: |
+          python3 -m py_compile project-doc-scaffolder/scripts/scaffold_project_docs.py
+          python3 project-doc-scaffolder/scripts/scaffold_project_docs.py --help >/dev/null

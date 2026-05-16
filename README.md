@@ -2,6 +2,10 @@
 
 Reusable agent skills for project setup and development workflows.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and pull request verification.
+
 ## Available Skills
 
 | Skill | Purpose | Use when |
