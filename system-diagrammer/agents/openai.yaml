@@ -1,0 +1,7 @@
+interface:
+  display_name: "System Diagrammer"
+  short_description: "Diagram and verify system connections"
+  default_prompt: "Use $system-diagrammer to slowly walk the code, map this system, record findings, verify each connection, and recommend fixes for breaks, edge cases, and disconnects."
+
+policy:
+  allow_implicit_invocation: true
