@@ -2,12 +2,17 @@
 
 Reusable agent skills for project setup and development workflows.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and pull request verification.
+
 ## Available Skills
 
 | Skill | Purpose | Use when |
 | --- | --- | --- |
 | `$create-issue` | Creates a single post-mortem issue and pull request from completed session work. | Work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR. |
 | `$falsify-project` | Attempts to disprove project claims before validating the repo, app, or site. | You want an adversarial audit that treats docs and claims as false until code/runtime evidence survives contradiction checks. |
+| `$github-repo-hygiene` | Audits GitHub repository hygiene and best-practice readiness. | You want evidence-backed recommendations for docs, CI, security, contribution flow, branch settings, releases, and repo cleanliness. |
 | `$new-feature` | Researches the current project and recommends prioritized new or next features. | You want evidence-backed feature ideas from the current repo, docs, issues, and recent work. |
 | `$project-doc-scaffolder` | Scaffolds agent-ready project documentation for a new or existing repository. | A project needs `AGENTS.md`, contributor docs, design notes, issue templates, and a PR template. |
 | `$system-diagrammer` | Walks code slowly to diagram and verify system, data, workflow, and integration connections. | You need a careful code-backed map of how systems connect, including findings, evidence, recommended fixes, breaks, edge cases, and disconnects. |
@@ -52,6 +57,10 @@ create-issue/
 └── agents/openai.yaml
 
 falsify-project/
+├── SKILL.md
+└── agents/openai.yaml
+
+github-repo-hygiene/
 ├── SKILL.md
 └── agents/openai.yaml
 

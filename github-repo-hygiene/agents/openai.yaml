@@ -1,0 +1,7 @@
+interface:
+  display_name: "GitHub Repo Hygiene"
+  short_description: "Audit GitHub repo hygiene"
+  default_prompt: "Use $github-repo-hygiene to audit this repository for GitHub best practices, prioritize findings, and recommend concrete hygiene fixes."
+
+policy:
+  allow_implicit_invocation: true
