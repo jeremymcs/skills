@@ -32,37 +32,66 @@ Default to action. Ask questions only after reading the issue and exploring the 
    - Decide whether the PR is the correct fix, a partial fix, stale, broken, or unrelated.
    - If the PR is the correct fix, verify it with the relevant checks and report that result instead of duplicating the work.
    - If the PR is incomplete or wrong, either review/comment with concrete evidence when asked, or create a separate fix only after explaining why the existing PR does not satisfy the issue.
-5. Interrogate uncertainty.
+5. Pass the implementation gate when the change is not obviously small.
+   - After issue/PR/codebase research, pause before editing when any trigger in the Implementation Gate section applies.
+   - If no trigger applies, post a brief checkpoint and continue without waiting.
+   - If a trigger applies, ask one focused question unless the conservative implementation is clearly implied by the issue and code evidence.
+6. Interrogate uncertainty.
    - Ask one question at a time.
    - For each question, include the recommended answer and the evidence that led to it.
    - Do not ask questions that codebase exploration can answer.
    - If the user is unavailable and the uncertainty is low-risk, choose the conservative path and document the assumption.
-6. Create the patch.
+7. Create the patch.
    - Implement the appropriately scoped change that satisfies the issue. Do not force a surgical fix when the correct solution needs a broader coordinated change.
    - Follow existing local patterns, naming, abstractions, formatting, and test style.
    - Add or update tests proportional to risk and blast radius.
    - Avoid opportunistic refactors, dependency churn, unrelated formatting, or broad rewrites.
-7. Analyze blast radius.
+8. Analyze blast radius.
    - Review every changed file and identify the runtime paths, API contracts, data flows, configuration, migrations, generated assets, user workflows, tests, and downstream integrations that could be affected.
    - Search for all callers, imports, route usages, feature flags, schema references, command invocations, and UI entry points touched by the change.
    - Classify the impact as narrow, moderate, or broad, and state why.
    - Expand the patch or tests when impact analysis shows that a local fix leaves adjacent behavior inconsistent.
    - Record any areas that could not be verified and why.
-8. Verify.
+9. Verify.
    - Run checks that cover the actual blast radius, not just the files edited.
    - Include a regression test for bugs whenever practical.
    - For contract, schema, or shared-module changes, verify representative consumers and backwards compatibility.
    - For UI changes, run the app when feasible and verify the changed workflow in a browser.
    - If a check cannot run, capture the blocker and any partial evidence.
-9. Prepare the pull request.
+10. Prepare the pull request.
    - Review the diff and ensure only intended files changed.
    - Commit with a focused message if the user asked for commit/PR or if pushing a PR is part of the request.
    - Push the branch and open a PR against the appropriate base branch.
    - Link the source issue using the tracker's closing syntax only when the PR fully resolves it; otherwise use a non-closing reference.
    - Default to a draft PR when meaningful uncertainty remains, checks are blocked, or the user did not specify ready-for-review.
-10. Report the result.
+11. Report the result.
    - Provide the issue reference, branch, PR URL, summary of changes, blast-radius assessment, and verification commands.
    - Call out assumptions, blocked checks, and any follow-up work that is real rather than speculative.
+
+## Implementation Gate
+
+Use this gate to keep autonomy for small fixes while avoiding surprise PRs for larger or riskier work.
+
+After reading the issue, checking linked PRs, and tracing the code path, pause and report a short implementation checkpoint before editing when any of these are true:
+
+- The expected fix touches more than 2 files.
+- The fix crosses process, package, API, persistence, auth, provider, workflow, or release boundaries.
+- The issue has safety, security, data-loss, maintainer-review, privileged-area, or similar high-risk labels/comments.
+- There is an existing linked, closing, or referenced PR, even if it looks incomplete.
+- The expected fix is not a small localized bug fix.
+- The current branch is not based on the target PR base branch.
+
+The checkpoint should include:
+
+- Issue summary.
+- Linked PR status: none, correct, partial, stale, broken, or unrelated.
+- Suspected root cause.
+- Proposed implementation slice.
+- Blast radius estimate.
+- Verification plan.
+- Explicit assumption if proceeding without a question.
+
+For a small local fix, post the checkpoint and continue. For a moderate or broad change, ask one focused question unless code and issue evidence make the conservative path clear.
 
 ## Issue Research Checklist
 
@@ -77,6 +106,7 @@ Use this checklist while exploring, but do not dump it into the final answer unl
 - What hidden coupling or migration risk exists?
 - What is the blast radius of the proposed or existing PR changes?
 - What is the right-sized demoable fix?
+- Does the Implementation Gate require a pause, and if so what is the one decision needed?
 
 ## Question Format
 
@@ -125,9 +155,11 @@ Use `Refs #ISSUE_NUMBER` instead of `Closes` when the PR does not fully satisfy 
 ## Guardrails
 
 - Do not implement before reading the issue and researching the relevant code.
+- Do not skip the Implementation Gate when its triggers apply.
 - Do not ask broad planning questions before doing codebase research.
 - Do not exceed the issue's scope without explicit approval.
 - Do not include unrelated user changes in commits or PRs.
+- Do not open a PR from a branch that includes unrelated commits against the target base.
 - Do not push directly to the default branch unless explicitly requested.
 - Do not mark a PR ready when verification is missing or materially blocked.
 - Do not invent issue labels, milestones, owners, product requirements, or external commitments.
