@@ -1,0 +1,4 @@
+interface:
+  display_name: "From Issue"
+  short_description: "Research an issue and ship a PR"
+  default_prompt: "Use $from-issue to research this issue, ask me only the questions the codebase cannot answer, implement the fix, verify it, and open a PR."
