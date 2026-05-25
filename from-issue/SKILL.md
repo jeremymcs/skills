@@ -19,7 +19,7 @@ Default to action. Ask questions only after reading the issue and exploring the 
 2. Establish working context.
    - Inspect repo instructions, package manifests, test scripts, recent commits, relevant ADRs, and domain docs.
    - Check `git status -sb` before editing. Preserve unrelated user changes.
-   - Create or switch to a focused branch when implementation will proceed. Use the repository's branch conventions when documented; otherwise use a short `codex/issue-<id>-<slug>` branch.
+   - Create or switch to a focused branch when implementation will proceed. Use the repository's branch conventions when documented; otherwise use a short `fix/issue-<id>-<slug>` branch.
 3. Research the implementation path.
    - Trace the relevant workflow through source, tests, API boundaries, data model, UI, and configuration.
    - Prefer concrete evidence over assumptions: file paths, existing tests, runtime behavior, logs, failing commands, or issue comments.
