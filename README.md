@@ -12,6 +12,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and pull re
 | --- | --- | --- |
 | `$create-issue` | Creates a single post-mortem issue and pull request from completed session work. | Work is already done and needs to be captured in the repo issue tracker, committed, pushed, and opened as a PR. |
 | `$falsify-project` | Attempts to disprove project claims before validating the repo, app, or site. | You want an adversarial audit that treats docs and claims as false until code/runtime evidence survives contradiction checks. |
+| `$from-issue` | Researches an existing issue, asks only codebase-unanswerable questions, implements a patch, verifies it, and opens a PR. | You want Codex to take a GitHub issue, tracker ticket, bug report, feature issue, or local issue artifact from investigation through pull request. |
 | `$github-repo-hygiene` | Audits GitHub repository hygiene and best-practice readiness. | You want evidence-backed recommendations for docs, CI, security, contribution flow, branch settings, releases, and repo cleanliness. |
 | `$new-feature` | Researches the current project and recommends prioritized new or next features. | You want evidence-backed feature ideas from the current repo, docs, issues, and recent work. |
 | `$project-doc-scaffolder` | Scaffolds agent-ready project documentation for a new or existing repository. | A project needs `AGENTS.md`, contributor docs, design notes, issue templates, and a PR template. |
@@ -61,6 +62,10 @@ falsify-project/
 └── agents/openai.yaml
 
 github-repo-hygiene/
+├── SKILL.md
+└── agents/openai.yaml
+
+from-issue/
 ├── SKILL.md
 └── agents/openai.yaml
 
