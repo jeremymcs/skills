@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dumb It Down"
+  short_description: "Make hard ideas easy to understand"
+  default_prompt: "Use $dumb-it-down to explain this in plain English with simple references."
