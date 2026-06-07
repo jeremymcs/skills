@@ -1,0 +1,36 @@
+{
+  "name": "@jeremymcs/skills",
+  "version": "0.1.0",
+  "description": "NPX installer for Jeremy McSpadden's reusable agent skills.",
+  "type": "module",
+  "bin": {
+    "skills": "./bin/skills.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "create-issue",
+    "dumb-it-down",
+    "falsify-project",
+    "from-issue",
+    "github-repo-hygiene",
+    "new-feature",
+    "project-doc-scaffolder",
+    "system-diagrammer",
+    "to-adr",
+    "verify-project",
+    "zero-techdebt",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}
