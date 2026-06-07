@@ -55,3 +55,8 @@ jobs:
         run: |
           python3 -m py_compile project-doc-scaffolder/scripts/scaffold_project_docs.py
           python3 project-doc-scaffolder/scripts/scaffold_project_docs.py --help >/dev/null
+
+      - name: Check repo hygiene script
+        run: |
+          node --check github-repo-hygiene/scripts/audit_package_hygiene.mjs
+          node github-repo-hygiene/scripts/audit_package_hygiene.mjs --help >/dev/null
