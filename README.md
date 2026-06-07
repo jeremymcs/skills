@@ -14,7 +14,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and pull re
 | `$dumb-it-down` | Turns confusing ideas into plain-language explanations with simple references. | You want dense writing, jargon, code, contracts, technical topics, or abstract ideas broken down so they are extremely easy to understand. |
 | `$falsify-project` | Attempts to disprove project claims before validating the repo, app, or site. | You want an adversarial audit that treats docs and claims as false until code/runtime evidence survives contradiction checks. |
 | `$from-issue` | Researches an existing issue, asks only codebase-unanswerable questions, implements a patch, verifies it, and opens a PR. | You want Codex to take a GitHub issue, tracker ticket, bug report, feature issue, or local issue artifact from investigation through pull request. |
-| `$github-repo-hygiene` | Audits GitHub repository hygiene and best-practice readiness. | You want evidence-backed recommendations for docs, CI, security, contribution flow, branch settings, releases, and repo cleanliness. |
+| `$github-repo-hygiene` | Audits GitHub repository, package, and dependency hygiene. | You want evidence-backed recommendations for package manifests, dependencies, workspaces, docs, CI, security, contribution flow, branch settings, releases, and repo cleanliness. |
 | `$new-feature` | Researches the current project and recommends prioritized new or next features. | You want evidence-backed feature ideas from the current repo, docs, issues, and recent work. |
 | `$project-doc-scaffolder` | Scaffolds agent-ready project documentation for a new or existing repository. | A project needs `AGENTS.md`, contributor docs, design notes, issue templates, and a PR template. |
 | `$system-diagrammer` | Walks code slowly to diagram and verify system, data, workflow, and integration connections. | You need a careful code-backed map of how systems connect, including findings, evidence, recommended fixes, breaks, edge cases, and disconnects. |
@@ -69,7 +69,8 @@ falsify-project/
 
 github-repo-hygiene/
 ├── SKILL.md
-└── agents/openai.yaml
+├── agents/openai.yaml
+└── scripts/audit_package_hygiene.mjs
 
 from-issue/
 ├── SKILL.md
