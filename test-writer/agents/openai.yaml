@@ -1,0 +1,7 @@
+interface:
+  display_name: "Test Writer"
+  short_description: "Enforce hard tests for every change"
+  default_prompt: "Use $test-writer to enforce strict executable tests, RED/GREEN output, and sabotage failure for this change."
+
+policy:
+  allow_implicit_invocation: true
