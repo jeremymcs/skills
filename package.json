@@ -4,11 +4,11 @@
   "description": "NPX installer for Jeremy McSpadden's reusable agent skills.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeremymcs/skills.git"
+    "url": "git+https://github.com/jeremymcs/skills.git"
   },
   "type": "module",
   "bin": {
-    "skills": "./bin/skills.js"
+    "skills": "bin/skills.js"
   },
   "files": [
     "bin",
