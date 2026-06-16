@@ -1,0 +1,4 @@
+interface:
+  display_name: "Overengineering Review"
+  short_description: "Find avoidable code overengineering"
+  default_prompt: "Use $overengineering-review to inspect this code for overengineering and produce an HTML findings report."
