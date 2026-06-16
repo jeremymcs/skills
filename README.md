@@ -16,6 +16,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and pull re
 | `$from-issue` | Researches an existing issue, asks only codebase-unanswerable questions, implements a patch, verifies it, and opens a PR. | You want Codex to take a GitHub issue, tracker ticket, bug report, feature issue, or local issue artifact from investigation through pull request. |
 | `$github-repo-hygiene` | Audits GitHub repository, package, and dependency hygiene. | You want evidence-backed recommendations for package manifests, dependencies, workspaces, docs, CI, security, contribution flow, branch settings, releases, and repo cleanliness. |
 | `$new-feature` | Researches the current project and recommends prioritized new or next features. | You want evidence-backed feature ideas from the current repo, docs, issues, and recent work. |
+| `$overengineering-review` | Reviews code for avoidable complexity and writes an HTML findings report. | You want code inspected for too many layers, premature abstraction, generic machinery, unclear indirection, or complexity beyond the current requirement. |
 | `$project-doc-scaffolder` | Scaffolds agent-ready project documentation for a new or existing repository. | A project needs `AGENTS.md`, contributor docs, design notes, issue templates, and a PR template. |
 | `$system-diagrammer` | Walks code slowly to diagram and verify system, data, workflow, and integration connections. | You need a careful code-backed map of how systems connect, including findings, evidence, recommended fixes, breaks, edge cases, and disconnects. |
 | `$test-writer` | Enforces strict hard tests for every non-documentation change. | You want each change proven by executable behavior tests, RED/GREEN output, and sabotage failure rather than grep, source-text checks, snapshots-only assertions, or manual verification. |
@@ -78,6 +79,10 @@ from-issue/
 └── agents/openai.yaml
 
 new-feature/
+├── SKILL.md
+└── agents/openai.yaml
+
+overengineering-review/
 ├── SKILL.md
 └── agents/openai.yaml
 
