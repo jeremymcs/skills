@@ -6,6 +6,60 @@ Reusable agent skills for project setup and development workflows.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and pull request verification.
 
+## NPX Installer
+
+This repository ships a dependency-free Node CLI for installing every skill into agent CLIs and IDE rule folders.
+
+Run the guided installer:
+
+```bash
+npx @jeremymcs/skills
+```
+
+Install every skill for Codex:
+
+```bash
+npx @jeremymcs/skills install --target codex --all
+```
+
+Install selected skills into project-local agent skills:
+
+```bash
+npx @jeremymcs/skills install --target agents --skill dumb-it-down,zero-techdebt
+```
+
+Export a skill as Cursor rules with a model profile hint:
+
+```bash
+npx @jeremymcs/skills install --target cursor --skill github-repo-hygiene --model gpt-5
+```
+
+### Installer Targets
+
+| Target | Output |
+| --- | --- |
+| `codex` | Native skill folders in `~/.codex/skills` or `$CODEX_HOME/skills` |
+| `claude` | Native skill folders in `~/.claude/skills` |
+| `agents` | Native project skill folders in `./.agents/skills` |
+| `cli` | Portable native skill folders in `./.agent-skills` |
+| `cursor` | Cursor rule files in `./.cursor/rules/skills` plus bundled skill assets |
+| `windsurf` | Windsurf rule files in `./.windsurf/rules/skills` plus bundled skill assets |
+| `continue` | Continue rule files in `./.continue/rules/skills` plus bundled skill assets |
+| `all` | Installs to every target above |
+
+The native targets copy each skill directory exactly, including `SKILL.md`, metadata, scripts, references, and templates. IDE rule targets create one rule file per skill and keep the full skill source beside the rules in `_skills/<skill>/`.
+
+### Installer Options
+
+```bash
+npx @jeremymcs/skills list
+npx @jeremymcs/skills targets
+npx @jeremymcs/skills install --target codex,cursor --all --force
+npx @jeremymcs/skills install --target cli --dest /tmp/agent-skills --dry-run
+```
+
+Supported model profiles are `auto`, `gpt-5`, `gpt-4.1`, `claude-sonnet`, `claude-opus`, `gemini-pro`, and `local`. Model profiles are hints for hosts that surface model-specific instructions; native skill installs preserve the original skill content.
+
 ## Available Skills
 
 | Skill | Purpose | Use when |
@@ -37,7 +91,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and pull re
 
 ## Usage
 
-Run the scaffold script from this repository:
+Run the project doc scaffold script from this repository:
 
 ```bash
 python3 project-doc-scaffolder/scripts/scaffold_project_docs.py /path/to/project
