@@ -13,10 +13,11 @@ test("npm release workflow publishes the package through trusted publishing", as
   const publishJob = workflow.jobs.publish;
   const commands = collectRunCommands(publishJob);
 
-  assert.equal(packageJson.repository.url, "https://github.com/jeremymcs/skills.git");
+  assert.equal(packageJson.repository.url, "git+https://github.com/jeremymcs/skills.git");
+  assert.equal(packageJson.bin.skills, "bin/skills.js");
   assert.equal(workflow.name, "Publish npm package");
   assert.deepEqual(workflow.on.release.types, ["published"]);
-  assert.equal(workflow.on.workflow_dispatch.inputs.dry_run.default, true);
+  assert.deepEqual(workflow.on.workflow_dispatch, {});
   assert.equal(workflow.permissions.contents, "read");
   assert.equal(workflow.permissions["id-token"], "write");
   assert.equal(publishJob["runs-on"], "ubuntu-latest");
@@ -29,6 +30,8 @@ test("npm release workflow publishes the package through trusted publishing", as
   assert.match(commands, /npm publish --dry-run --access public --tag latest/);
   assert.match(commands, /npm publish --provenance --access public --tag latest/);
   assert.match(commands, /"\$RELEASE_VERSION" != "\$PACKAGE_VERSION"/);
+  assert.equal(findStep(publishJob, "Dry-run publish").if, "${{ github.event_name == 'workflow_dispatch' }}");
+  assert.equal(findStep(publishJob, "Publish package").if, "${{ github.event_name == 'release' }}");
 });
 
 async function readWorkflow(filePath) {

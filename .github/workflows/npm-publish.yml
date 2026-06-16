@@ -4,13 +4,7 @@ on:
   release:
     types:
       - published
-  workflow_dispatch:
-    inputs:
-      dry_run:
-        description: Run publish validation without publishing to npm.
-        required: true
-        type: boolean
-        default: true
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -78,9 +72,9 @@ jobs:
         run: npm pack --dry-run
 
       - name: Dry-run publish
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: npm publish --dry-run --access public --tag latest
 
       - name: Publish package
-        if: ${{ github.event_name == 'release' || inputs.dry_run == false }}
+        if: ${{ github.event_name == 'release' }}
         run: npm publish --provenance --access public --tag latest
