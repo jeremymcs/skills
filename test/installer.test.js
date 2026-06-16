@@ -7,6 +7,19 @@ import { parseArgs, runCli } from "../lib/cli.js";
 import { installSkills } from "../lib/installer.js";
 import { discoverSkills } from "../lib/registry.js";
 
+test("package files include every discovered skill", async () => {
+  const packageJson = JSON.parse(await fs.readFile("package.json", "utf8"));
+  const packageFiles = new Set(packageJson.files);
+  const skills = await discoverSkills();
+
+  assert.deepEqual(
+    skills
+      .map((skill) => skill.slug)
+      .filter((slug) => !packageFiles.has(slug)),
+    []
+  );
+});
+
 test("discovers packaged skills from SKILL.md metadata", async () => {
   const skills = await discoverSkills();
   const slugs = skills.map((skill) => skill.slug);
